@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --background: hsl(220 39% 8%);
+  --foreground: hsl(210 40% 96%);
+  --card: hsl(222 34% 12% / 0.8);
+  --card-foreground: hsl(210 40% 96%);
+  --border: hsl(189 90% 52% / 0.28);
+  --muted: hsl(220 27% 17%);
+  --muted-foreground: hsl(214 24% 75%);
+  --grid-cyan: hsl(189 97% 57%);
+  --grid-cyan-soft: hsl(189 100% 68%);
+  --grid-panel: hsl(220 39% 8% / 0.66);
+}
+
+.dark {
+  --background: hsl(240 10% 3.9%);
+  --foreground: hsl(0 0% 98%);
+  --card: hsl(240 10% 3.9%);
+  --card-foreground: hsl(0 0% 98%);
+  --border: hsl(240 3.7% 15.9%);
+  --muted: hsl(240 3.7% 15.9%);
+  --muted-foreground: hsl(240 5% 64.9%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 20% 18%, hsl(189 95% 57% / 0.14), transparent 36%),
+      radial-gradient(circle at 82% 22%, hsl(197 93% 56% / 0.16), transparent 30%),
+      linear-gradient(180deg, hsl(220 39% 8%) 0%, hsl(225 41% 6%) 100%);
+    color: var(--foreground);
+    font-family:
+      "Inter",
+      "Segoe UI",
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif;
+  }
+}
+
+@layer utilities {
+  .grid-surface {
+    background: linear-gradient(140deg, hsl(222 34% 12% / 0.86), hsl(221 40% 10% / 0.78));
+    border: 1px solid hsl(189 90% 52% / 0.26);
+    box-shadow:
+      0 0 0 1px hsl(189 90% 52% / 0.08) inset,
+      0 14px 36px hsl(220 70% 2% / 0.6),
+      0 0 20px hsl(189 100% 60% / 0.1);
+  }
+
+  .grid-glow {
+    box-shadow:
+      0 0 0 1px hsl(189 100% 60% / 0.35) inset,
+      0 0 16px hsl(189 100% 60% / 0.3),
+      0 0 36px hsl(189 100% 60% / 0.15);
+  }
+
+  .grid-line {
+    background-image:
+      linear-gradient(hsl(189 100% 60% / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(189 100% 60% / 0.08) 1px, transparent 1px);
+    background-size: 38px 38px;
+  }
+}
